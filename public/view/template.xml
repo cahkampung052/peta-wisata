@@ -1,0 +1,11 @@
+<markers>
+	{% for val in messages %}
+	<marker
+		name="{{val.nama}}"
+		address="{{val.alamat}}"
+		lat="{{val.lattitude}}"
+		lng="{{val.longitude}}"
+		type="{{val.type}}"
+	/>
+	{% endfor %}
+</markers>

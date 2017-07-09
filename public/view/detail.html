@@ -1,0 +1,57 @@
+{% extends "layout/main.html" %}
+
+{% block content %}
+<div id="page-content">
+    <div class="container post-background">
+        <ol class="breadcrumb">
+            <li>
+                <a href="{{path_for('index')}}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{path_for('berita')}}">
+                    Berita
+                </a>
+            </li>
+            <li class="active">
+                {{artikel.judul}}
+            </li>
+        </ol>
+        <div class="row">
+            <div class="col-md-9 col-sm-9">
+                <section id="content">
+                    <header>
+                        <h1>
+                            {{artikel.judul}}
+                        </h1>
+                    </header>
+                    <article class="blog-post">
+                        <figure class="meta">
+                            <a class="link-icon" href="#">
+                                <i class="fa fa-user">
+                                </i>
+                                {{artikel.user}}
+                            </a>
+                            <a class="link-icon" href="#">
+                                <i class="fa fa-calendar">
+                                </i>
+                                {{artikel.tanggal}}
+                            </a>
+                            <div class="tags">
+                                <a class="tag article" href="#">
+                                    {{artikel.kategori}}
+                                </a>
+                            </div>
+                        </figure>
+                        {{artikel.konten|raw}}
+                    </article>
+                </section>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                {% include 'layout/sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

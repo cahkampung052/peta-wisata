@@ -1,0 +1,95 @@
+.my-drop-zone {
+    border: dotted 3px lightgray;
+}
+
+.menu-icon {
+    font-size: 35px;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.form-group-sm .form-control-static {
+    font-size: 14px;
+}
+
+.progress {
+    margin-bottom: 0px;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.ng-isolate-scope table .btn-default {
+    padding: 8px;
+    border-radius: 0px !important;
+    border: 1px solid #e4e4e4;
+    background-color: #fff;
+}
+
+.ng-isolate-scope table .btn-default.active {
+    background-color: #338bd0 !important;
+}
+
+.form-group-sm .form-control-static {
+    font-size: 14px;
+}
+
+.text-bold:after {
+    content: ":";
+    text-align: right;
+    float: right
+}
+
+.text-red {
+    color: #db2828;
+}
+
+.text-green {
+    color: #5cb85c;
+}
+
+.list-hover {
+    cursor: pointer;
+}
+
+.list-hover label {
+    cursor: pointer;
+}
+
+.list-hover:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+#printArea {
+    display: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.btn-sm {
+    font-size: 11px;
+    padding: .4em 1.2em .4em;
+}
+
+.no-padding td {
+    padding: 2px !important;
+}
+
+table, td, th {
+    padding: 2px !important;
+    margin: 0px 0px 0px !important;
+}
+
+p {
+    margin: 0px 0px 0px !important
+}
+
+.ui-select-match-item {
+    padding: .3em 1em .3em;
+    font-weight: normal;
+}

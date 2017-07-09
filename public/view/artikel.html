@@ -1,0 +1,103 @@
+{% extends "layout/main.html" %}
+
+{% block content %}
+<div id="page-content">
+    <div class="container post-background">
+        <ol class="breadcrumb">
+            <li>
+                <a href="{{path_for('index')}}">
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                Berita
+            </li>
+        </ol>
+        <div class="row">
+            <div class="col-md-9 col-sm-9">
+                <div class="infobox-wrapper">
+                    <div class="infobox-inner">
+                        <a href="">
+                            <div class="infobox-image" style="position: relative; max-width: 250px;">
+                                <img src="{{baseUrl}}/public/images/noimage.jpg">
+                                    <div>
+                                        <span class="infobox-price">
+                                            Jatimpark 1
+                                        </span>
+                                    </div>
+                                </img>
+                            </div>
+                        </a>
+                        <div class="infobox-description">
+                            <div class="infobox-title">
+                                <a href="">
+                                    Jl kaliurang
+                                </a>
+                            </div>
+                            <div class="infobox-location">
+                                <a class="btn btn-primary" href="#" style="width: 48%">
+                                    <span class="fa fa-search">
+                                    </span>
+                                    Detail
+                                </a>
+                                <a class="btn btn-primary" href="#" style="width: 50%; float: right;">
+                                    <span class="fa fa-eye">
+                                    </span>
+                                    Lihat Rute
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section id="content">
+                    <header>
+                        <h1>
+                            Berita Terbaru
+                        </h1>
+                    </header>
+                    {% for key, val in list %}
+                    <article class="blog-post">
+                        <a href="{{path_for('detail',{'id':val.id,'alias':val.alias})}}">
+                            <img src="{{val.img}}"/>
+                        </a>
+                        <header>
+                            <a href="{{path_for('detail',{'id':val.id,'alias':val.alias})}}">
+                                <h2>
+                                    {{val.judul}}
+                                </h2>
+                            </a>
+                        </header>
+                        <figure class="meta">
+                            <a class="link-icon" href="#">
+                                <i class="fa fa-user">
+                                </i>
+                                {{val.user}}
+                            </a>
+                            <a class="link-icon" href="#">
+                                <i class="fa fa-calendar">
+                                </i>
+                                {{val.tanggal}}
+                            </a>
+                            <div class="tags">
+                                <a class="tag article" href="#">
+                                    {{val.kategori}}
+                                </a>
+                            </div>
+                        </figure>
+                        <p>
+                            {{val.cuplikan|raw}}
+                        </p>
+                        <a class="link-arrow" href="{{path_for('detail',{'id':val.id,'alias':val.alias})}}">
+                            Baca Selengkapnya
+                        </a>
+                    </article>
+                    {% endfor %}
+                </section>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                {% include 'layout/sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

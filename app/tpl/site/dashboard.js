@@ -1,0 +1,1 @@
+app.controller('dashboardCtrl', function($scope, Data, toaster, $state) {});
