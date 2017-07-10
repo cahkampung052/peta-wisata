@@ -23,6 +23,7 @@ function createHomepageGoogleMap(_url, _latitude, _longitude) {
         var i = 0;
         Array.prototype.forEach.call(markers, function(markerElem) {
             var name = markerElem.getAttribute('name');
+            var iconUrl = markerElem.getAttribute('icon');
             var address = markerElem.getAttribute('address');
             var type = markerElem.getAttribute('type');
             var point = new google.maps.LatLng(parseFloat(markerElem.getAttribute('lat')), parseFloat(markerElem.getAttribute('lng')));
@@ -42,14 +43,12 @@ function createHomepageGoogleMap(_url, _latitude, _longitude) {
                 closeBoxURL: _url + "/public/images/map/close-btn.png",
                 infoBoxClearance: new google.maps.Size(1, 1)
             };
-            var marker = new MarkerWithLabel({
+            var imageIcon = new google.maps.MarkerImage(iconUrl, new google.maps.Size(71, 71), new google.maps.Point(0, 0), new google.maps.Point(17, 34), new google.maps.Size(42, 42));
+            var marker = new google.maps.Marker({
                 title: name,
                 position: new google.maps.LatLng(markerElem.getAttribute('lat'), markerElem.getAttribute('lng')),
                 map: map,
-                icon: 'assets/img/marker.png',
-                labelContent: pictureLabel,
-                labelAnchor: new google.maps.Point(50, 0),
-                labelClass: "marker-style"
+                icon: imageIcon,
             });
             newMarkers.push(marker);
             newMarkers[i].infobox = new InfoBox(infoboxOptions);

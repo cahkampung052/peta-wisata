@@ -10,7 +10,11 @@ require 'systems/functions.php';
 
 $db = new Cahkampung\Landadb(Db());
 
-$wisata = $db->findAll('select * from wisata');
+$db->select("wisata.*, kategori_wisata.icon")
+    ->from("wisata")
+    ->leftJoin("kategori_wisata", "kategori_wisata.id = wisata.kategori_wisata_id");
+
+$wisata = $db->findAll();
 
 header("Content-type: text/xml");
 
@@ -22,6 +26,7 @@ foreach ($wisata as $key => $value) {
     echo 'address="' . parseToXML($value->alamat) . '" ';
     echo 'lat="' . parseToXML($value->lattitude) . '" ';
     echo 'lng="' . parseToXML($value->longitude) . '" ';
+    echo 'icon="' . parseToXML(getenv('ICON_BASE') . $value->icon) . '" ';
     echo 'type="R"';
     echo '/>';
 }
