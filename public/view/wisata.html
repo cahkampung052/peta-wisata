@@ -1,0 +1,101 @@
+{% extends "layout/main.html" %}
+
+{% block content %}
+<div id="page-content">
+    <div class="container post-background">
+        <ol class="breadcrumb">
+            <li>
+                <a href="{{path_for('index')}}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Wisata
+                </a>
+            </li>
+            <li class="active">
+                {{wisata.nama}}
+            </li>
+        </ol>
+        <div class="row" id="main-content">
+            <div class="col-md-8 col-sm-8">
+                <section id="content">
+                    <header>
+                        <h1>
+                            {{wisata.nama}}
+                        </h1>
+                    </header>
+                    <article class="blog-post" style="padding-bottom: 0px; margin-bottom: 15px;">
+                        <figure class="meta">
+                            <div class="tags">
+                                <a class="tag article" href="#">
+                                    {{wisata.kategori}}
+                                </a>
+                            </div>
+                        </figure>
+                        <div style="height: 450px; overflow-y: hidden; margin-bottom: 15px;">
+                            <img class="wisata-img" src="{{baseUrl}}/{{wisata.foto}}" style="width: 100%"/>
+                        </div>
+                        {{wisata.informasi|raw}}
+                    </article>
+                </section>
+                <section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>
+                                Gallery Instagram
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="owl-carousel owl-theme" id="owl-onpage">
+                                {% for key, val in foto %}
+                                <div class="item">
+                                    <a data-target="#GListModalGallery" data-toggle="modal">
+                                        <img src="{{val}}">
+                                        </img>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <!-- modalGallery -->
+                            <div aria-hidden="true" aria-labelledby="GListModalGalleryLabel" class="modal" id="GListModalGallery" role="dialog" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button class="close" data-dismiss="modal" type="button">
+                                                <span aria-hidden="true">
+                                                    ×
+                                                </span>
+                                                <span class="sr-only">
+                                                    Close
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="owl-modal">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /modalGallery -->
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </section>
+                <section style="margin-bottom: 50px;">
+                    <div class="fb-comments" data-href="{{baseUrl}}/{{wisata.foto}}/{{wisata.nameUrl}}.html" data-numposts="5" data-width="100%">
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                {% include 'layout/sidebarwisata.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

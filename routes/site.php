@@ -1,30 +1,55 @@
 <?php
-$app->get('/tes', function ($request, $response) {
+$app->get('/wisata/{id}/{alias}.html', function ($request, $response) {
     $db = $this->db;
 
-    $wisata = $db->findAll('select * from wisata');
+    $db->select("wisata.*, kategori_wisata.icon, kategori_wisata.nama as kategori")
+        ->from("wisata")
+        ->leftJoin("kategori_wisata", "kategori_wisata.id = wisata.kategori_wisata_id")
+        ->where("wisata.id", "=", $request->getAttribute('id'));
 
-    header("Content-type: text/xml");
+    $wisata = $db->find();
 
-    echo '<markers>';
+    $other = $db->findAll('select * from wisata where id != "' . $wisata->id . '" order by rand() DESC limit 5');
 
-    foreach ($wisata as $key => $value) {
-        echo '<marker ';
-        echo 'name="' . parseToXML($value->nama) . '" ';
-        echo 'address="' . parseToXML($value->alamat) . '" ';
-        echo 'lat="' . $value->lattitude . '" ';
-        echo 'lng="' . $value->longitude . '" ';
-        echo 'type="R';
-        echo '/>';
+    foreach ($other as $key => $value) {
+        $value->alias = urlParsing($value->nama);
     }
 
-    echo '</marker>';
+    $foto = [];
+    if (isset($wisata->id) && !empty($wisata->hastag)) {
+        $hastag = str_replace("#", "", $wisata->hastag);
 
-})->setName('tes');
+        $client = new \GuzzleHttp\Client();
+        $req    = $client->request('GET', 'https://www.instagram.com/explore/tags/' . $hastag . '?__a=1');
+
+        if ($req->getStatusCode() == 200) {
+            $res = json_decode($req->getBody(), true);
+            foreach ($res['tag']['top_posts']['nodes'] as $key => $value) {
+                if ($value['is_video'] == false) {
+                    $foto[] = $value['thumbnail_src'];
+                }
+            };
+        }
+    }
+
+    $wisata->nameUrl = $request->getAttribute('alias');
+
+    return $this->view->render($response, 'view/wisata.html', [
+        'wisata' => $wisata,
+        'other'  => $other,
+        'foto'   => $foto,
+    ]);
+
+})->setName('wisata');
 
 $app->get('/', function ($request, $response) {
-    return $this->view->render($response, 'view/home.html', [
 
+    $db = $this->db;
+
+    $kategori = $db->findAll('select * from kategori_wisata');
+
+    return $this->view->render($response, 'view/home.html', [
+        'kategori' => $kategori,
     ]);
 })->setName('index');
 
@@ -49,7 +74,7 @@ $app->get('/berita', function ($request, $response) {
         $value->tanggal  = date("d/m/Y", $value->tanggal);
     }
 
-    $populer = $db->findAll('select * from berita order by dibaca DESC limit 7');
+    $populer = $db->findAll('select * from berita order by dibaca DESC limit 5');
 
     foreach ($populer as $key => $value) {
         $value->cuplikan = cuplikan($value->konten, 200);
@@ -101,6 +126,12 @@ $app->get('/kontak', function ($request, $response) {
 
     ]);
 })->setName('kontak');
+
+$app->get('/tentang', function ($request, $response) {
+    return $this->view->render($response, 'view/tentang.html', [
+
+    ]);
+})->setName('tentang');
 
 $app->get('/site/session', function ($request, $response) {
     if (isset($_SESSION['user']['id'])) {

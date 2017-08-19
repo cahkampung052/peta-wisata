@@ -13,7 +13,8 @@
         "wixel/gump": "dev-master",
         "vlucas/phpdotenv": "^2.4",
         "robmorgan/phinx": "^0.7.0",
-        "slim/twig-view": "^1.2"
+        "slim/twig-view": "^1.2",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "autoload": {
         "psr-4": {

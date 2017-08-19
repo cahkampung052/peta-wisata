@@ -61,9 +61,7 @@ $app->get('/appberita/index', function ($request, $response) {
     }
 
     /** Set sorting */
-    if (!empty($params['sort'])) {
-        $db->sort($sort);
-    }
+    $db->orderBy($sort);
 
     $models    = $db->findAll();
     $totalItem = $db->count();

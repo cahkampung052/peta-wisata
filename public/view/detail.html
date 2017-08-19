@@ -18,8 +18,8 @@
                 {{artikel.judul}}
             </li>
         </ol>
-        <div class="row">
-            <div class="col-md-9 col-sm-9">
+        <div class="row" id="main-content">
+            <div class="col-md-8 col-sm-8">
                 <section id="content">
                     <header>
                         <h1>
@@ -47,8 +47,12 @@
                         {{artikel.konten|raw}}
                     </article>
                 </section>
+                <section style="margin-bottom: 50px;">
+                    <div class="fb-comments" data-href="{{baseUrl}}/{{wisata.foto}}/{{wisata.nameUrl}}.html" data-numposts="5" data-width="100%">
+                    </div>
+                </section>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-4 col-sm-4">
                 {% include 'layout/sidebar.html' %}
             </div>
         </div>

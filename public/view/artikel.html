@@ -13,42 +13,8 @@
                 Berita
             </li>
         </ol>
-        <div class="row">
-            <div class="col-md-9 col-sm-9">
-                <div class="infobox-wrapper">
-                    <div class="infobox-inner">
-                        <a href="">
-                            <div class="infobox-image" style="position: relative; max-width: 250px;">
-                                <img src="{{baseUrl}}/public/images/noimage.jpg">
-                                    <div>
-                                        <span class="infobox-price">
-                                            Jatimpark 1
-                                        </span>
-                                    </div>
-                                </img>
-                            </div>
-                        </a>
-                        <div class="infobox-description">
-                            <div class="infobox-title">
-                                <a href="">
-                                    Jl kaliurang
-                                </a>
-                            </div>
-                            <div class="infobox-location">
-                                <a class="btn btn-primary" href="#" style="width: 48%">
-                                    <span class="fa fa-search">
-                                    </span>
-                                    Detail
-                                </a>
-                                <a class="btn btn-primary" href="#" style="width: 50%; float: right;">
-                                    <span class="fa fa-eye">
-                                    </span>
-                                    Lihat Rute
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="row" id="main-content">
+            <div class="col-md-8 col-sm-8">
                 <section id="content">
                     <header>
                         <h1>
@@ -94,7 +60,7 @@
                     {% endfor %}
                 </section>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-4 col-sm-4">
                 {% include 'layout/sidebar.html' %}
             </div>
         </div>

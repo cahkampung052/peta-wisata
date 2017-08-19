@@ -1,35 +1,281 @@
-/*------------------------------------------------------------------
-Project:  Zoner - Real Estate HTML Template
-Version:  1.0
-Last change:  11.1.2015
-Assigned to:  ThemeStarz
-
-[Table of contents]
-
-1. Elements styling
-2. Styling for specific pages
-3. Universal Classes
-4. Header
-5. Footer
-6. Content
-7. Responsive
-
-[Color codes]
-
-Default: #1396e2;
-Grey dark: #2a2a2a;
-Grey medium: #5a5a5a;
-Grey light: #f3f3f3;
-
-[Typography]
-
-Body copy:    'Roboto', sans-serif; 14px;
-Headers:    'Roboto', sans-serif;
-
--------------------------------------------------------------------*/
-
-
 /* 1. Element Styling */
+
+
+/*****/
+
+.fa-3 {
+    font-size: 2.3em;
+}
+
+.table {
+    display: table;
+    margin: 0 auto;
+}
+
+ul#horizontal-list {
+    min-width: 100%;
+    list-style: none;
+    padding-top: 20px;
+}
+
+ul#horizontal-list li {
+    display: inline;
+    padding: 3px;
+}
+
+#owl-onpage .item {
+    margin: 3px;
+}
+
+#owl-onpage .item a {
+    opacity: 1;
+}
+
+#owl-onpage .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.owl-carousel .owl-item img {
+    height: auto;
+    width: 100%;
+    display: block;
+}
+
+.owl-carousel .item {
+    margin: 0px;
+}
+
+
+/*owl custom controls*/
+
+.owl-theme .owl-controls .owl-buttons div {
+    padding: 0;
+}
+
+.owl-theme .owl-buttons i {
+    margin-top: 2px;
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+    filter: Alpha(Opacity=50);
+    color: #000000;
+    opacity: 0.5;
+}
+
+.owl-theme .owl-controls .owl-buttons div:hover {
+    filter: Alpha(Opacity=80);
+    opacity: 0.8;
+}
+
+
+/*To move navigation buttons outside use these settings:*/
+
+.owl-theme .owl-controls .owl-buttons div {
+    position: absolute;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+    left: 20px;
+    top: 45%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+    right: 20px;
+    top: 45%;
+}
+
+
+/* crop and center img */
+
+#owl-onpage .item {
+    width: 100%;
+    /* or whatever is required */
+    text-align: center;
+    /* ensures the image is always in the h-middle */
+    overflow: hidden;
+    /* hide the cropped portion */
+    padding: 0 10px;
+    max-height: 120px;
+    height: 120px;
+}
+
+#owl-onpage .item img {
+    position: relative;
+    /* allows repositioning */
+    left: 100%;
+    /* move the whole width of the image to the right */
+    margin-left: -100%;
+    /* magic! */
+}
+
+@media only screen and (min-width: 450px) {
+    #owl-onpage .item {
+        max-height: 160px;
+        height: 160px;
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    #owl-onpage .item {
+        max-height: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #owl-onpage .item {
+        max-height: 230px;
+        height: 230px;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    #owl-onpage .item {
+        max-height: 140px;
+        height: 140px;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    #owl-onpage .item {
+        max-height: 170px;
+        height: 170px;
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    #owl-onpage .item {
+        max-height: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    #owl-onpage .item {
+        max-height: 230px;
+        height: 230px;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    #owl-onpage .item {
+        max-height: 250px;
+        height: 250px;
+    }
+}
+
+@media only screen and (min-width: 1900px) {
+    #owl-onpage .item {
+        max-height: 280px;
+        height: 280px;
+    }
+}
+
+@media only screen and (min-width: 2200px) {
+    #owl-onpage .item {
+        max-height: 300px;
+        height: 300px;
+    }
+}
+
+
+/* opacity img */
+
+@media only screen and (min-width: 979px) {
+    .owl-item.active~.owl-item.active, .owl-item.active~.owl-item.active~.owl-item.active {
+        opacity: 1;
+    }
+}
+
+
+/*****************************************************************
+ * LIGHTBOX
+ *****************************************************************/
+
+.modal-open .modal {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-header {
+    min-height: 0;
+    padding: 0;
+    border-bottom: none;
+}
+
+.modal-content {
+    position: absolute;
+    background-color: transparent;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: none;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+}
+
+.modal-body {
+    padding-top: 15px;
+}
+
+#owl-modal .item img {
+    display: block;
+    max-width: 580px;
+}
+
+.owl-item {
+    opacity: 1;
+}
+
+#GListModalGallery .close {
+    font-size: 40px;
+    /*line-height: 30px;*/
+    color: #fff;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    width: 30px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position: absolute;
+    right: 0px;
+    top: -5px;
+    /*margin-top: 0;*/
+    z-index: 9999;
+}
+
+#GListModalGallery .close:hover {
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+
+
+/*owl MODAL custom controls*/
+
+#owl-modal .owl-controls .owl-buttons div {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+    filter: Alpha(Opacity=50);
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.wisata-img {
+    width: 100%!important;
+}
 
 @charset "CP852";
 a {
@@ -4239,6 +4485,7 @@ ul.list-links li a:hover {
     font-size: 12px;
 }
 
+
 /*.infobox-wrapper .infobox-inner .fa {
     color: #1396e2;
     float: right;
@@ -5190,10 +5437,14 @@ body, html {
         padding-left: 0;
     }
     .property.small .property-image {
-        float: none;
+        /* float: none;
         height: auto;
         margin-bottom: 10px;
-        width: 100%;
+        width: 100%;*/
+        float: left;
+        width: 100px;
+        height: 75px;
+        margin-right: 15px;
     }
     .ribbon {
         right: -20px;
@@ -5240,6 +5491,12 @@ body, html {
 }
 
 @media (max-width: 767px) {
+    .sidebar-header {
+        font-size: 28px;
+    }
+    .sidebar-title {
+        font-size: 24px;
+    }
     .agency .agency-image {
         display: block;
         width: inherit;
@@ -5669,10 +5926,14 @@ body, html {
         padding-left: 0;
     }
     .property.small .property-image {
-        float: none;
+        /*float: none;
         height: auto;
         margin-bottom: 10px;
-        width: 100%;
+        width: 100%;*/
+        float: left;
+        width: 100px;
+        height: 75px;
+        margin-right: 15px;
     }
     .property.masonry {
         width: 100%;

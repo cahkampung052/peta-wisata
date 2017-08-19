@@ -1,0 +1,86 @@
+{% extends "layout/main.html" %}
+
+{% block content %}
+<div id="page-content">
+    <div class="container post-background">
+        <ol class="breadcrumb">
+            <li>
+                <a href="{{path_for('index')}}">
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                Tentang Kami
+            </li>
+        </ol>
+        <div class="row" id="main-content">
+            <div class="col-md-12 col-sm-12">
+                <section id="about-us">
+                    <header>
+                        <h1>
+                            Tentang Kami
+                        </h1>
+                    </header>
+                    <div style="text-align: center;">
+                        <section id="ceo-section">
+                            <header class="center">
+                                <div class="cite-title">
+                                    Batu Tourism Map
+                                </div>
+                            </header>
+                            <div class="cite no-bottom-margin">
+                               <b>
+                                    Batu Tourism Map
+                                </b>
+                                adalah sebuah sistem informasi online yang menyajikan peta wisata kota batu dalam bentuk digital dan dapat diakses dari berbagai perangkat guna menunjang kegiatan wisata di Kota Batu. Pada website ini anda dapat mencari rute menuju tempat wisata yang ingin anda tuju beserta informasi yang lengkap mengenai tempat wisata tersebut.
+                            </div>
+                        </section>
+                        <section id="ceo-section" style="margin-top: 50px;">
+                            <header class="center">
+                                <div class="cite-title">
+                                    Developer
+                                </div>
+                            </header>
+                            <div class="cite no-bottom-margin">
+                                <center>
+                                    <img class="img img-circle" src="{{baseUrl}}/public/images/developer.jpg">
+                                    </img>
+                                </center>
+                                <br/>
+                                <h3>
+                                    Wahyu Agung Tribawono
+                                </h3>
+                                <figure class="subtitle">
+                                    Teknik Informatika Sekolah Tinggi Teknik Malang
+                                </figure>
+                                <div class="table">
+                                    <ul id="horizontal-list">
+                                        <li id="horizontal-list">
+                                            <a href="https://www.facebook.com/wahyuagung.tribawono" target="_blank">
+                                                <i aria-hidden="true" class="fa fa-facebook-square fa-3">
+                                                </i>
+                                            </a>
+                                        </li>
+                                        <li id="horizontal-list">
+                                            <a href="https://twitter.com/wahyuAgung_TB" target="_blank">
+                                                <i aria-hidden="true" class="fa fa-twitter-square fa-3">
+                                                </i>
+                                            </a>
+                                        </li>
+                                        <li id="horizontal-list">
+                                            <a href="https://www.linkedin.com/in/wahyuagung/" target="_blank" target="_blank">
+                                                <i aria-hidden="true" class="fa fa-linkedin-square fa-3">
+                                                </i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

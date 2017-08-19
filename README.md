@@ -15,3 +15,5 @@ Slim Framework 3 with Angular 1.4 For Web App
 * Slim 3, dokumentasi lengkap di [https://www.slimframework.com/docs/](https://www.slimframework.com/docs/)
 * Landa-Db, dokumentasi lengkap di [https://github.com/cahkampung052/landadb](https://github.com/cahkampung052/landadb)
 * Migrasi database, dokumentasi lengkap di [http://docs.phinx.org](http://docs.phinx.org)
+
+Zoner - Real Estate HTML Template
