@@ -85,6 +85,10 @@ $app->get('/appberita/getkategori', function ($request, $response) {
 $app->post('/appberita/save', function ($request, $response) {
     $data = $request->getParams();
 
+    $data['judul'] = isset($data['judul']) ? $data['judul'] : '';
+    $data['konten'] = isset($data['konten']) ? $data['konten'] : '';
+    $data['kategori_berita_id'] = isset($data['kategori_berita_id']) ? $data['kategori_berita_id'] : '';
+
     $db = $this->db;
 
     $validasi = validasi($data);

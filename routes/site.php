@@ -42,6 +42,17 @@ $app->get('/wisata/{id}/{alias}.html', function ($request, $response) {
 
 })->setName('wisata');
 
+$app->get('/peta', function ($request, $response) {
+
+    $db = $this->db;
+
+    $kategori = $db->findAll('select * from kategori_wisata');
+
+    return $this->view->render($response, 'view/peta.html', [
+        'kategori' => $kategori,
+    ]);
+})->setName('peta');
+
 $app->get('/', function ($request, $response) {
 
     $db = $this->db;

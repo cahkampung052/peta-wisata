@@ -91,6 +91,11 @@ $app->get('/appwisata/getkategori', function ($request, $response) {
 $app->post('/appwisata/save', function ($request, $response) {
     $data = $request->getParams();
 
+    $data['nama'] = isset($data['nama']) ? $data['nama'] : '';
+    $data['alamat'] = isset($data['alamat']) ? $data['alamat'] : '';
+    $data['kategori_wisata_id'] = isset($data['kategori_wisata_id']) ? $data['kategori_wisata_id'] : '';
+    $data['informasi'] = isset($data['informasi']) ? $data['informasi'] : '';
+
     $db = $this->db;
 
     $validasi = validasi($data);

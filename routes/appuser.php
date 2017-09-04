@@ -106,6 +106,12 @@ $app->get('/appuser/index', function ($request, $response) {
 $app->post('/appuser/create', function ($request, $response) {
     $data = $request->getParams();
 
+    $data['nama'] = isset($data['nama']) ? $data['nama'] : '';
+    $data['username'] = isset($data['username']) ? $data['username'] : '';
+    $data['alamat'] = isset($data['alamat']) ? $data['alamat'] : '';
+    $data['email'] = isset($data['email']) ? $data['email'] : '';
+    $data['no_tlp'] = isset($data['no_tlp']) ? $data['no_tlp'] : '';
+
     $db = $this->db;
 
     $validasi = validasi($data, ['password' => 'required']);
@@ -128,6 +134,12 @@ $app->post('/appuser/create', function ($request, $response) {
 $app->post('/appuser/updateprofil', function ($request, $response) {
     $data = $request->getParams();
     $id   = $_SESSION['user']['id'];
+
+    $data['nama'] = isset($data['nama']) ? $data['nama'] : '';
+    $data['username'] = isset($data['username']) ? $data['username'] : '';
+    $data['alamat'] = isset($data['alamat']) ? $data['alamat'] : '';
+    $data['email'] = isset($data['email']) ? $data['email'] : '';
+    $data['no_tlp'] = isset($data['no_tlp']) ? $data['no_tlp'] : '';
 
     $db = $this->db;
 
@@ -156,9 +168,15 @@ $app->post('/appuser/updateprofil', function ($request, $response) {
 $app->post('/appuser/update', function ($request, $response) {
     $data = $request->getParams();
 
+    $data['nama'] = isset($data['nama']) ? $data['nama'] : '';
+    $data['username'] = isset($data['username']) ? $data['username'] : '';
+    $data['alamat'] = isset($data['alamat']) ? $data['alamat'] : '';
+    $data['email'] = isset($data['email']) ? $data['email'] : '';
+    $data['no_tlp'] = isset($data['no_tlp']) ? $data['no_tlp'] : '';
+
     $db = $this->db;
 
-    if (!empty($params['password'])) {
+    if (!empty($data['password'])) {
         $data['password'] = sha1($data['password']);
     } else {
         unset($data['password']);

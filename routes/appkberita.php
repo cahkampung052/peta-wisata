@@ -73,6 +73,8 @@ $app->get('/appkberita/index', function ($request, $response) {
 $app->post('/appkberita/save', function ($request, $response) {
     $data = $request->getParams();
 
+    $data['nama'] = isset($data['nama']) ? $data['nama'] : '';
+
     $db = $this->db;
 
     $validasi = validasi($data);

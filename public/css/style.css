@@ -1,5 +1,23 @@
 /* 1. Element Styling */
 
+html {
+    height:100vh!important;
+}
+
+body {
+    min-height: 100%;
+}
+
+.page-bg {
+    background-image: url("../images/background.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: transparent;
+    height:90vh!important;
+}
+
 
 /*****/
 
@@ -5263,7 +5281,7 @@ body, html {
 }
 
 #page-content {
-    height: auto;
+    height: 100%;
 }
 
 #page-footer {
