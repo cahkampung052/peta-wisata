@@ -1,21 +1,49 @@
 /* 1. Element Styling */
 
-html {
-    height:100vh!important;
-}
-
-body {
-    min-height: 100%;
-}
-
 .page-bg {
     background-image: url("../images/background.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: transparent;
-    height:90vh!important;
+    /*background-color: transparent;*/
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 80vh!important;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.map-canvas .map .legenda {
+    background-color: #fff;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+    padding: 15px 0px;
+}
+
+.btn-home {
+    padding: 15px;
+    font-size: 24px;
+}
+
+#header1 {
+    padding-top: 60px;
+}
+
+.overlay-full {
+    height: 80vh!important;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.title-home {
+    font-size: 32px;
+    color: white;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
@@ -251,8 +279,33 @@ ul#horizontal-list li {
     max-width: 580px;
 }
 
+#owl-modal1 .item img {
+    display: block;
+    max-width: 580px;
+}
+
 .owl-item {
     opacity: 1;
+}
+
+#GListModalGallery1 .close {
+    font-size: 40px;
+    /*line-height: 30px;*/
+    color: #fff;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    width: 30px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position: absolute;
+    right: 0px;
+    top: -5px;
+    /*margin-top: 0;*/
+    z-index: 9999;
+}
+
+#GListModalGallery1 .close:hover {
+    filter: alpha(opacity=80);
+    opacity: 0.8;
 }
 
 #GListModalGallery .close {
@@ -277,6 +330,19 @@ ul#horizontal-list li {
 
 
 /*owl MODAL custom controls*/
+#owl-modal1 .owl-controls .owl-buttons div {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+    filter: Alpha(Opacity=50);
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
 
 #owl-modal .owl-controls .owl-buttons div {
     margin: 0;
@@ -696,7 +762,7 @@ ul.list-links li a:hover {
     -moz-transition: 0.2s;
     -webkit-transition: 0.2s;
     transition: 0.2s;
-    color: #2a2a2a;
+    color: #fff;
     display: inline-block;
 }
 
@@ -713,7 +779,7 @@ ul.list-links li a:hover {
     line-height: 1;
     text-transform: none;
     content: "\f105";
-    color: #1396e2;
+    color: #fff;
     left: 0;
     font-size: 18px;
     margin-left: 10px;
@@ -4398,6 +4464,10 @@ ul.list-links li a:hover {
     bottom: 0px;
 }
 
+.info-harga{
+    font-size: 14px;
+}
+
 .infobox-wrapper>img {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
     opacity: 0.5;
@@ -5281,7 +5351,8 @@ body, html {
 }
 
 #page-content {
-    height: 100%;
+    background-color: #5c81e1;
+    /*height: 100%;*/
 }
 
 #page-footer {

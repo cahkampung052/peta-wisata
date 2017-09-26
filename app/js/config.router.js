@@ -103,7 +103,9 @@ angular.module('app').run(
                     resolve: {
                         deps: ['$ocLazyLoad',
                             function($ocLazyLoad) {
-                                return $ocLazyLoad.load('tpl/wisata/index.js');
+                                return $ocLazyLoad.load(['angularFileUpload']).then(function() {
+                                    return $ocLazyLoad.load('tpl/wisata/index.js');
+                                });
                             }
                         ]
                     }

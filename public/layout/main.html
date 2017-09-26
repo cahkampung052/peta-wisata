@@ -18,9 +18,14 @@
                 <link href="{{baseUrl}}/public/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
                 <link href="{{baseUrl}}/public/css/jquery.slider.min.css" rel="stylesheet" type="text/css"/>
                 <link href="{{baseUrl}}/public/css/style.css" rel="stylesheet" type="text/css"/>
-
-                <link rel="Batu Tourism Map" href="{{baseUrl}}/favicon.ico" type="image/x-icon" />
-                <meta name="google-site-verification" content="A6mvQjJ45sZLEOt1I5LK8uqa5K2ND0tCiX-oM99M7nw" />
+                <link href="{{baseUrl}}/favicon.ico" rel="Batu Tourism Map" type="image/x-icon"/>
+                <meta content="Peta wisata kota batu merupakan sebuah peta yang menampilkan lokasi-lokasi wisata yang ada di kota Batu" name="description"/>
+                <meta content="peta wisata kota batu, peta wisata, kota batu" name="keyword"/>
+                <meta content="noodp" name="robots"/>
+                <meta content="id_ID" property="og:locale"/>
+                <meta content="website" property="og:type"/>
+                <meta content="Peta Wisata Kota Batu | Batu Toursim Map" property="og:title"/>
+                <meta content="A6mvQjJ45sZLEOt1I5LK8uqa5K2ND0tCiX-oM99M7nw" name="google-site-verification"/>
             </meta>
         </meta>
     </head>
@@ -118,6 +123,16 @@
               $('#owl-onpage .item a').on('click', function() {
                 var theSrc = $(this).find('img').attr('src');
                 var owlModal = $('#owl-modal');
+                
+                owlModal.empty();
+                
+                var item = $('<div>', {'class' : 'item'}).appendTo(owlModal);
+                $('<img>', {'src' : theSrc}).appendTo(item);
+              });
+
+              $('#owl-onpage1 .item a').on('click', function() {
+                var theSrc = $(this).find('img').attr('src');
+                var owlModal = $('#owl-modal1');
                 
                 owlModal.empty();
                 

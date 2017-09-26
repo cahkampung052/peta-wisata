@@ -3,18 +3,18 @@
 {% block content %}
 <div id="page-content">
     <div class="container post-background">
-        <ol class="breadcrumb">
-            <li>
-                <a href="{{path_for('index')}}">
-                    Home
-                </a>
-            </li>
-            <li class="active">
-                Berita
-            </li>
-        </ol>
         <div class="row" id="main-content">
             <div class="col-md-8 col-sm-8">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{path_for('index')}}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">
+                        Berita
+                    </li>
+                </ol>
                 <section id="content">
                     <header>
                         <h1>
@@ -53,7 +53,7 @@
                         <p>
                             {{val.cuplikan|raw}}
                         </p>
-                        <a class="link-arrow" href="{{path_for('detail',{'id':val.id,'alias':val.alias})}}">
+                        <a class="btn btn-primary link-arrow" href="{{path_for('detail',{'id':val.id,'alias':val.alias})}}">
                             Baca Selengkapnya
                         </a>
                     </article>

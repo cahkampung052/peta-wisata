@@ -128,6 +128,21 @@
                             </center>
                         </form>
                     </div>
+                    <div class="legenda horizontal">
+                        <div class="container">
+                            <center>
+                                <ul>
+                                    {% for key, val in kategori %}
+                                    <li style="display: inline;">
+                                        <img src="{{baseUrl}}/app/img/icon/{{val.icon}}" width="35">
+                                            {{val.nama}}
+                                        </img>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </center>
+                        </div>
+                    </div>
                 </div>
             </div>
             <footer id="page-footer">
@@ -274,7 +289,10 @@
                                 '</div>' + 
                             '</a>' + 
                             '<div class="infobox-description">' + 
-                                '<div class="infobox-location" style="margin-top:10px;">' + 
+                                '<div class="infobox-location" style="margin-top:10px;">' +
+                                    '<div><span class="info-harga"><b>Harga Weekday : </b> ' + markerElem.getAttribute('harga_weekday') + '</span></div>' + 
+                                    '<div><span class="info-harga"><b>Harga Weekend : </b> ' + markerElem.getAttribute('harga_weekend') + '</span></div>' +  
+                                    '<div><span class="info-harga"><b>Jam Operasional : </b> ' + markerElem.getAttribute('jam_operasional') + '</span></div><br/>' + 
                                     '<a class="btn btn-primary" href="'+_url+'/wisata/'+ markerElem.getAttribute('id') +'/'+markerElem.getAttribute('alias')+'.html" style="width: 48%">' + 
                                         '<span class="fa fa-search"></span> Detail ' + 
                                     '</a>' + 

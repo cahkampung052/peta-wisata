@@ -102,101 +102,271 @@
                     </div>
                     <div class="panel-body">
                         <form class="form-horizontal form-validation " name="landaform" novalidate="">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-sm">
-                                        <label class="col-md-4 control-label text-left">
-                                            Nama Wisata
-                                        </label>
-                                        <div class="col-md-8">
-                                            <input class="form-control" ng-disabled="is_view" ng-model="form.nama" type="text">
-                                            </input>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-group-sm">
-                                        <label class="col-md-4 control-label text-left">
-                                            Kategori
-                                        </label>
-                                        <div class="col-md-8">
-                                            <select class="form-control" ng-disabled="is_view" ng-model="form.kategori_wisata_id">
-                                                <option ng-repeat="row in listKategori" ng-selected="{{row.id == form.kategori_wisata_id}}" value="{{row.id}}">
-                                                    {{row.nama}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-group-sm">
-                                        <label class="col-md-4 control-label text-left">
-                                            Alamat
-                                        </label>
-                                        <div class="col-md-8">
-                                            <textarea class="form-control" ng-disabled="is_view" ng-model="form.alamat">
-                                            </textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-group-sm">
-                                        <label class="col-md-4 control-label text-left">
-                                            Hastag Instagram
-                                        </label>
-                                        <div class="col-md-8">
-                                            <textarea class="form-control" ng-disabled="is_view" ng-model="form.hastag">
-                                            </textarea>
-                                            <p class="block-help">
-                                                <i>
-                                                    * Pisahkan dengan tanda koma (,)
-                                                </i>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-sm">
-                                        <div class="col-sm-12">
-                                            <center>
-                                                <div style="overflow: hidden;">
-                                                    <img class="img img-responsive img-produk" id="foto" ng-src="{{form.foto}}" style="max-width: 200px"/>
-                                                </div>
-                                                <div class="fileUploadr btn btn-primary edit">
-                                                    <span>
-                                                        <i class="glyphicon glyphicon-camera">
-                                                        </i>
-                                                        <b>
-                                                            Foto Tempat Wisata
-                                                        </b>
-                                                    </span>
-                                                    <input class="upload" fileread="form.foto" ng-hide="is_view" type="file">
+                            <tabset class="tab-container">
+                                <tab>
+                                    <tab-heading>
+                                        Data Wisata
+                                    </tab-heading>
+                                    <div class="row" style="margin-top: 30px;">
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-md-4 control-label text-left">
+                                                    Nama Wisata
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" ng-disabled="is_view" ng-model="form.nama" type="text">
                                                     </input>
                                                 </div>
-                                            </center>
+                                            </div>
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-md-4 control-label text-left">
+                                                    Kategori
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <select class="form-control" ng-disabled="is_view" ng-model="form.kategori_wisata_id">
+                                                        <option ng-repeat="row in listKategori" ng-selected="{{row.id == form.kategori_wisata_id}}" value="{{row.id}}">
+                                                            {{row.nama}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-md-4 control-label text-left">
+                                                    Alamat
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" ng-disabled="is_view" ng-model="form.alamat">
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-md-4 control-label text-left">
+                                                    Harga Tiket (Weekday)
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control angka" ng-disabled="is_view" ng-model="form.harga_weekday" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-md-4 control-label text-left">
+                                                    Harga Tiket (Weekend)
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control angka" ng-disabled="is_view" ng-model="form.harga_weekend" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-md-4 control-label text-left">
+                                                    Jam Operasional
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" ng-disabled="is_view" ng-model="form.jam_operasional" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-md-4 control-label text-left">
+                                                    Hastag Instagram
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control angka" ng-disabled="is_view" ng-model="form.hastag" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-sm">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                        <div style="overflow: hidden;">
+                                                            <img class="img img-responsive img-produk" id="foto" ng-src="{{form.foto}}" style="max-width: 200px"/>
+                                                        </div>
+                                                        <div class="fileUploadr btn btn-primary edit">
+                                                            <span>
+                                                                <i class="glyphicon glyphicon-camera">
+                                                                </i>
+                                                                <b>
+                                                                    Foto Tempat Wisata
+                                                                </b>
+                                                            </span>
+                                                            <input class="upload" fileread="form.foto" ng-hide="is_view" type="file">
+                                                            </input>
+                                                        </div>
+                                                    </center>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="map-wrapper">
-                                        <ui-gmap-google-map center="map.center" draggable="true" events="map.events" zoom="map.zoom" scrollwheel="false">
-                                            <ui-gmap-marker coords="map.markers.coords" icon="map.markers.icon" idkey="map.markers.id">
-                                            </ui-gmap-marker>
-                                        </ui-gmap-google-map>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h2 class="page-header">
-                                        Informasi Wana Wisata
-                                    </h2>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group form-group-sm">
+                                    <div class="row">
                                         <div class="col-md-12">
-                                            <textarea ckeditor="editorOptions" ng-disabled="is_view" ng-model="form.informasi" style="height: 100px;">
-                                            </textarea>
+                                            <div class="map-wrapper">
+                                                <ui-gmap-google-map center="map.center" draggable="true" events="map.events" scrollwheel="false" zoom="map.zoom">
+                                                    <ui-gmap-marker coords="map.markers.coords" icon="map.markers.icon" idkey="map.markers.id">
+                                                    </ui-gmap-marker>
+                                                </ui-gmap-google-map>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="page-header">
+                                                Informasi Wana Wisata
+                                            </h2>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-sm">
+                                                <div class="col-md-12">
+                                                    <textarea ckeditor="editorOptions" ng-disabled="is_view" ng-model="form.informasi" style="height: 100px;">
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tab>
+                                <tab ng-if="!is_create">
+                                    <tab-heading>
+                                        Gallery Foto
+                                    </tab-heading>
+                                    <div class="hbox hbox-auto-xs hbox-auto-sm" filters="queueLimit, customFilter" nv-file-drop="" uploader="uploader" style="margin-top: 30px;">
+                                        <div class="row" ng-show="!is_view">
+                                            <div class="col-md-4">
+                                                <div class="wrapper-md dker b-b">
+                                                    <h3 class="m-n font-thin">
+                                                        Select files
+                                                    </h3>
+                                                </div>
+                                                <div class="wrapper-md">
+                                                    <div class="m-b-md" ng-show="uploader.isHTML5">
+                                                        <div class="b-a b-2x b-dashed wrapper-lg bg-white text-center m-b" nv-file-over="" over-class="b-info" uploader="uploader">
+                                                            Drop Gambar
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        Pilih Gambar
+                                                    </p>
+                                                    <input multiple="" nv-file-select="" type="file" uploader="uploader"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="wrapper-md">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th width="50%">
+                                                                    Name
+                                                                </th>
+                                                                <th ng-show="uploader.isHTML5">
+                                                                    Size
+                                                                </th>
+                                                                <th ng-show="uploader.isHTML5">
+                                                                    Progress
+                                                                </th>
+                                                                <th>
+                                                                    Status
+                                                                </th>
+                                                                <th>
+                                                                    Actions
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="item in uploader.queue">
+                                                                <td>
+                                                                    <strong>
+                                                                        {{ item.file.name}}
+                                                                    </strong>
+                                                                </td>
+                                                                <td ng-show="uploader.isHTML5" nowrap="">
+                                                                    {{ item.file.size / 1024 / 1024|number:2 }} MB
+                                                                </td>
+                                                                <td ng-show="uploader.isHTML5">
+                                                                    <div class="progress progress-sm m-b-none m-t-xs">
+                                                                        <div class="progress-bar bg-info" ng-style="{ 'width': item.progress + '%' }" role="progressbar">
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <span class="text-success" ng-show="item.isSuccess">
+                                                                        <i class="glyphicon glyphicon-ok">
+                                                                        </i>
+                                                                    </span>
+                                                                    <span class="text-warning" ng-show="item.isCancel">
+                                                                        <i class="glyphicon glyphicon-ban-circle">
+                                                                        </i>
+                                                                    </span>
+                                                                    <span class="text-danger" ng-show="item.isError">
+                                                                        <i class="glyphicon glyphicon-remove">
+                                                                        </i>
+                                                                    </span>
+                                                                </td>
+                                                                <td nowrap="">
+                                                                    <button class="btn btn-default btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess" type="button">
+                                                                        Upload
+                                                                    </button>
+                                                                    <button class="btn btn-default btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading" type="button">
+                                                                        Cancel
+                                                                    </button>
+                                                                    <button class="btn btn-default btn-xs" ng-click="item.remove()" type="button">
+                                                                        Remove
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div>
+                                                        <div>
+                                                            <p>
+                                                                Proses Upload:
+                                                            </p>
+                                                            <div class="progress bg-light dker" style="">
+                                                                <div class="progress-bar progress-bar-striped bg-info" ng-style="{ 'width': uploader.progress + '%' }" role="progressbar">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-addon btn-success" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length" type="button">
+                                                            <i class="fa fa-arrow-circle-o-up">
+                                                            </i>
+                                                            Upload all
+                                                        </button>
+                                                        <button class="btn btn-addon btn-warning" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading" type="button">
+                                                            <i class="fa fa-ban">
+                                                            </i>
+                                                            Cancel all
+                                                        </button>
+                                                        <button class="btn btn-addon btn-danger" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length" type="button">
+                                                            <i class="fa fa-trash-o">
+                                                            </i>
+                                                            Remove all
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="wrapper-md dker b-b" style="margin-bottom: 25px;">
+                                                    <h3 class="m-n font-thin">
+                                                        Detail Foto
+                                                    </h3>
+                                                </div>
+                                                <div class="col-md-2 m-b repeat-animation hide-fade" ng-repeat="slide in gambar">
+                                                    <a href="#">
+                                                        <img class="img-thumbnail" ng-src="../public/images/galeri/{{slide.name}}"/>
+                                                    </a>
+                                                    <p align="center" ng-show="!is_view" style="padding:10px;">
+                                                        <button href="" class="btn btn-danger " ng-click="removeFoto($index, slide.name)">
+                                                            <i class="glyphicon glyphicon-trash" title="Hapus">
+                                                            </i>
+                                                        </button>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tab>
+                            </tabset>
                             <footer class="panel-footer text-right bg-light lter">
                                 <div align="center">
                                     <button class="btn btn-default" ng-click="cancel()">

@@ -7,6 +7,7 @@ $dotenv->load();
 
 require 'systems/database.php';
 require 'systems/functions.php';
+require 'systems/systems.php';
 
 $db = new Cahkampung\Landadb(Db());
 
@@ -32,6 +33,10 @@ header("Content-type: text/xml");
 
 echo '<markers>';
 foreach ($wisata as $key => $value) {
+
+    $harga1 = empty($value->harga_weekday) ? 'Gratis' : rp($value->harga_weekday);
+    $harga2 = empty($value->harga_weekend) ? 'Gratis' : rp($value->harga_weekend);
+
     echo '<marker ';
     echo 'id="' . parseToXML($value->id) . '" ';
     echo 'alias="' . parseToXML(str_replace(" ", "-", $value->nama)) . '" ';
@@ -40,6 +45,9 @@ foreach ($wisata as $key => $value) {
     echo 'lat="' . parseToXML($value->lattitude) . '" ';
     echo 'lng="' . parseToXML($value->longitude) . '" ';
     echo 'img="' . parseToXML($value->foto) . '" ';
+    echo 'jam_operasional="' . parseToXML($value->jam_operasional) . '" ';
+    echo 'harga_weekday="' . parseToXML($harga1) . '" ';
+    echo 'harga_weekend="' . parseToXML($harga2) . '" ';
     echo 'icon="' . parseToXML(getenv('ICON_BASE') . $value->icon) . '" ';
     echo 'type="R"';
     echo '/>';

@@ -1,9 +1,21 @@
 {% extends "layout/main.html" %}
 
 {% block content %}
-<div id="page-content" class="page-bg">
-    <div class="container">
-      <br><br><br>
+<div class="page-bg" id="page-content">
+    <div class="overlay-full">
+        <div class="container" style="height: 80vh!important;">
+            <div id="header1">
+                <h1 class="title-home">
+                    Bingung Mencari Lokasi Wisata Di Kota Batu ?<br/><br/>
+                    Kami Menyediakan Peta Wisata Kota Batu Yang Mudah Diakses
+                </h1>
+                <h1 class="title-home">
+                    <a href="{{path_for('peta')}}" class="btn btn-primary btn-home">
+                        Mulai Sekarang
+                    </a>
+                </h1>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

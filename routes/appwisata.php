@@ -21,6 +21,21 @@ function validasi($data, $custom = array())
 /**
  * get list wisata
  */
+$app->get('/appwisata/getfoto', function ($request, $response) {
+    $data = $request->getParams();
+    $db   = $this->db;
+
+    $db->select("*")
+        ->from("galeri")
+        ->where("wisata_id", "=", $data['id']);
+
+    $list = $db->findAll();
+    return successResponse($response, $list);
+});
+
+/**
+ * get list wisata
+ */
 $app->get('/appwisata/index', function ($request, $response) {
     $params = $_REQUEST;
 
@@ -91,10 +106,10 @@ $app->get('/appwisata/getkategori', function ($request, $response) {
 $app->post('/appwisata/save', function ($request, $response) {
     $data = $request->getParams();
 
-    $data['nama'] = isset($data['nama']) ? $data['nama'] : '';
-    $data['alamat'] = isset($data['alamat']) ? $data['alamat'] : '';
+    $data['nama']               = isset($data['nama']) ? $data['nama'] : '';
+    $data['alamat']             = isset($data['alamat']) ? $data['alamat'] : '';
     $data['kategori_wisata_id'] = isset($data['kategori_wisata_id']) ? $data['kategori_wisata_id'] : '';
-    $data['informasi'] = isset($data['informasi']) ? $data['informasi'] : '';
+    $data['informasi']          = isset($data['informasi']) ? $data['informasi'] : '';
 
     $db = $this->db;
 
@@ -145,6 +160,24 @@ $app->delete('/appwisata/delete/{id}', function ($request, $response) {
 
     try {
         $delete = $db->delete('wisata', array('id' => $request->getAttribute('id')));
+        return successResponse($response, ['data berhasil dihapus']);
+    } catch (Exception $e) {
+        return unprocessResponse($response, ['data gagal dihapus']);
+    }
+});
+
+/**
+ * delete wisata
+ */
+$app->post('/appwisata/removegambar', function ($request, $response) {
+    $data = $request->getParams();
+    $db   = $this->db;
+
+    try {
+        $delete = $db->delete('galeri', array('name' => $data['nama']));
+        if (file_exists(getenv("IMG_PATH") . 'galeri/' . $data['nama'])) {
+            unlink(getenv("IMG_PATH") . 'galeri/' . $data['nama']);
+        }
         return successResponse($response, ['data berhasil dihapus']);
     } catch (Exception $e) {
         return unprocessResponse($response, ['data gagal dihapus']);

@@ -3,23 +3,23 @@
 {% block content %}
 <div id="page-content">
     <div class="container post-background">
-        <ol class="breadcrumb">
-            <li>
-                <a href="{{path_for('index')}}">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="{{path_for('berita')}}">
-                    Berita
-                </a>
-            </li>
-            <li class="active">
-                {{artikel.judul}}
-            </li>
-        </ol>
         <div class="row" id="main-content">
             <div class="col-md-8 col-sm-8">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{path_for('index')}}">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{path_for('berita')}}">
+                            Berita
+                        </a>
+                    </li>
+                    <li class="active">
+                        {{artikel.judul}}
+                    </li>
+                </ol>
                 <section id="content">
                     <header>
                         <h1>

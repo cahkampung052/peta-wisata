@@ -32,12 +32,23 @@ $app->get('/wisata/{id}/{alias}.html', function ($request, $response) {
         }
     }
 
+    $db->select("*")
+        ->from("galeri")
+        ->where("wisata_id", "=", $request->getAttribute('id'));
+
+    $galeri = $db->findAll();
+
+    foreach ($galeri as $key => $val) {
+        $val->name = getenv('SITE_IMG') . '/public/images/galeri/' . $val->name;
+    }
+
     $wisata->nameUrl = $request->getAttribute('alias');
 
     return $this->view->render($response, 'view/wisata.html', [
         'wisata' => $wisata,
         'other'  => $other,
         'foto'   => $foto,
+        'galeri' => $galeri,
     ]);
 
 })->setName('wisata');
@@ -201,5 +212,34 @@ $app->post('/site/upload', function ($request, $response) {
         $langCode = $_GET['langCode'];
 
         echo "<script type='text/javascript'> window.parent.CKEDITOR.tools.callFunction($funcNum, '$url', '');</script>";
+    }
+});
+
+$app->post('/site/uploadgambar', function ($request, $response) {
+    $files   = $request->getUploadedFiles();
+    $params  = $request->getParams();
+    $newfile = $files['file'];
+
+    if (!file_exists(getenv("IMG_PATH") . 'galeri/')) {
+        mkdir(getenv("IMG_PATH") . 'galeri/', 0777);
+    }
+
+    try {
+        if (file_exists("file/" . $newfile->getClientFilename())) {
+            echo $newfile->getClientFilename() . " already exists please choose another image.";
+        } else {
+            $path           = getenv("IMG_PATH") . 'galeri/';
+            $uploadFileName = date("dYh") . urlParsing($newfile->getClientFilename());
+            $upload         = $newfile->moveTo($path . $uploadFileName);
+
+            $db = $this->db;
+
+            $insert = $db->insert("galeri", ['wisata_id' => $params['id'], 'name' => $uploadFileName]);
+
+            $answer = array('answer' => 'File transfer completed', 'name' => $uploadFileName);
+        }
+        return successResponse($response, $answer);
+    } catch (Exception $e) {
+        return unprocessResponse($response, [$e->getMessage()]);
     }
 });

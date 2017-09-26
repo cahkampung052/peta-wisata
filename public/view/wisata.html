@@ -3,23 +3,23 @@
 {% block content %}
 <div id="page-content">
     <div class="container post-background">
-        <ol class="breadcrumb">
-            <li>
-                <a href="{{path_for('index')}}">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    Wisata
-                </a>
-            </li>
-            <li class="active">
-                {{wisata.nama}}
-            </li>
-        </ol>
         <div class="row" id="main-content">
             <div class="col-md-8 col-sm-8">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{path_for('index')}}">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Wisata
+                        </a>
+                    </li>
+                    <li class="active">
+                        {{wisata.nama}}
+                    </li>
+                </ol>
                 <section id="content">
                     <header>
                         <h1>
@@ -34,13 +34,58 @@
                                 </a>
                             </div>
                         </figure>
-                        <div style="height: 450px; overflow-y: hidden; margin-bottom: 15px;">
+                        <div style="max-height: 450px; overflow-y: hidden; margin-bottom: 15px;">
                             <img class="wisata-img" src="{{baseUrl}}/{{wisata.foto}}" style="width: 100%"/>
                         </div>
                         {{wisata.informasi|raw}}
                     </article>
                 </section>
                 <section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>
+                                Gallery Foto
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="owl-carousel owl-theme" id="owl-onpage1">
+                                {% for key, val in galeri %}
+                                <div class="item">
+                                    <a data-target="#GListModalGallery1" data-toggle="modal">
+                                        <img src="{{val.name}}">
+                                        </img>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <!-- modalGallery -->
+                            <div aria-hidden="true" aria-labelledby="GListModalGalleryLabel" class="modal" id="GListModalGallery1" role="dialog" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button class="close" data-dismiss="modal" type="button">
+                                                <span aria-hidden="true">
+                                                    ×
+                                                </span>
+                                                <span class="sr-only">
+                                                    Close
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="owl-modal1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /modalGallery -->
+                        </div>
+                    </div>
+                </section>
+                <section style="margin-top: 30px;">
                     <div class="row">
                         <div class="col-md-12">
                             <h3>
@@ -82,8 +127,6 @@
                                 </div>
                             </div>
                             <!-- /modalGallery -->
-                        </div>
-                        <div>
                         </div>
                     </div>
                 </section>
